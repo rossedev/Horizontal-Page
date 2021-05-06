@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Horizontal</title>
+<html class="skrollr skrollr-desktop"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="css/style.css?v2">
+	<title>Horizontal</title>	
 </head>
-<body>
-    <div class="container" data-0="transform:translateX(0%);" data-3000="transform:translateX(-200%);" data-end="10000">
+
+<body style="height: 500px;">
+	<div data-0="transform:translate(0,0%);" data-100p="transform:translate(0,-100%);" class="skrollable skrollable-after" style="transform: translate(0px, -100%);">
         <section>
-            <div class="content">
-                <h2>Section First</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
+            <div class="wave" id="wave1" style="--i:1;"></div>
+            <div class="wave" id="wave2" style="--i:2;"></div>
+            <div class="wave" id="wave3" style="--i:3;"></div>
+            <div class="wave" id="wave4" style="--i:4;"></div>
         </section>
-        <section>
-            <div class="content">
-                <h2>Section Second</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
-        </section>
-        <section>
-            <div class="content">
-                <h2>Section Third</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
-        </section>
-    </div>
-    <script type="text/javascript" src="skrollr.min.js"></script>
+        <div class="sec">
+            <h2>Rosa Andrea Morales Olaya</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+	</div>
+
+	<div data-0="transform:translate(0,100%);" data-100p="transform:translate(0,0%)" data-_box-100p="" data-_box-200p="transform:translate(0,-100%)" class="skrollable skrollable-between" style="transform: translate(0px, 0%);">
+		<div class="box skrollable skrollable-between" data-100p="width:0%;" data-_box-100p="width:100%" style="width: 3.34855%;"></div>
+	</div>
+
+	<div data-_box-100p="transform:translate(0,100%);" data-_box-200p="transform:translate(0,0%);" class="boxs skrollable skrollable-before" style="transform: translate(0px, 100%);"></div>
+
+	<div data-_box-220p="transform:translate(0,100%);" data-_box-320p="transform:translate(0,0%);" class="boxs skrollable skrollable-before" style="transform: translate(0px, 100%);"></div>
+
+	<script type="text/javascript" src="js/skrollr.min.js"></script>
+
 	<script type="text/javascript">
-	    let s = skrollr.init();
+	skrollr.init({
+		constants: {
+			//fill the box for a "duration" of 150% of the viewport (pause for 150%)
+			//adjust for shorter/longer pause
+			box: '200p',
+            boxs: '200p'
+		}
+	});
 	</script>
-</body>
-</html>
+    <script type="text/javascript">
+
+        let wave1 = document.getElementById('wave1');
+        let wave2 = document.getElementById('wave2');    
+        let wave3 = document.getElementById('wave3');
+        let wave4 = document.getElementById('wave4');
+
+        window.addEventListener('scroll', function(){
+            let val = window.scrollY;
+
+            wave1.style.backgroundPositionX = 400 + val + 4 + 'px';
+            wave2.style.backgroundPositionX = 300 + val + -4 + 'px';
+            wave3.style.backgroundPositionX = 200 + val + 2 + 'px';
+            wave4.style.backgroundPositionX = 100 + val + -2 + 'px';
+
+        })
+
+    </script>
+
+
+
+</body></html>
