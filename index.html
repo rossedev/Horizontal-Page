@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html class="skrollr skrollr-desktop"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="css/style.css?v2">
+	<link rel="stylesheet" href="css/style.css?d3">
 	<title>Horizontal</title>	
 </head>
 
 <body style="height: 500px;">
-	<div data-0="transform:translate(0,0%);" data-100p="transform:translate(0,-100%);" class="skrollable skrollable-after" style="transform: translate(0px, -100%);">
-        <section>
+	<div data-0="transform:translate(0,0%);" data-100p="transform:translate(0,-100%);" class="skrollable skrollable-after" style="transform: translate(0px, -100%);">        
+        <section class="init-wave" style="--i:0;">
+            <img src="img/starts.png" id="starts" alt="starts">
+            <img src="img/moon.png" id="moon" alt="moon">
+            <img src="img/rock.png" id="rock" alt="rock">
             <div class="wave" id="wave1" style="--i:1;"></div>
             <div class="wave" id="wave2" style="--i:2;"></div>
             <div class="wave" id="wave3" style="--i:3;"></div>
             <div class="wave" id="wave4" style="--i:4;"></div>
         </section>
-        <div class="sec">
+        <div class="sec">            
+            <h2>Let's Go</h2>           
+        </div>
+	</div>
+    
+	<div data-0="transform:translate(0,100%);" data-100p="transform:translate(0,0%);" data-_box-100p="" data-_box-200p="transform:translate(0,-100%)" class="skrollable skrollable-between" style="transform: translate(0px, 0%);">
+        <div class="box skrollable skrollable-between" data-100p="height:0%;" data-_box-100p="height:-100%;">
             <h2>Rosa Andrea Morales Olaya</h2>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
         </div>
-	</div>
-
-	<div data-0="transform:translate(0,100%);" data-100p="transform:translate(0,0%)" data-_box-100p="" data-_box-200p="transform:translate(0,-100%)" class="skrollable skrollable-between" style="transform: translate(0px, 0%);">
-		<div class="box skrollable skrollable-between" data-100p="width:0%;" data-_box-100p="width:100%" style="width: 3.34855%;"></div>
+        
+		<div class="box skrollable skrollable-between" data-100p="margin-left:0%;" data-_box-100p="margin-left:100%;">
+            <!--<div id="header">
+                <a href="#" class="logo">Rose</a>
+                <ul>                   
+                    <li>
+                        <a href="#" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#">Project</a>
+                    </li>                   
+                </ul>
+            </div>-->
+            <section class="title">
+                <h2 id="text"><span>Hey! My name is</span><br>Rosa</h2>
+                <img src="img/bird1.png" id="bird1" alt="bird">
+                <img src="img/bird2.png" id="bird2" alt="bird">
+                <img src="img/forest.png" id="forest" alt="forest">
+                <a href="#" id="btn">Explore</a>
+                <img src="img/rocks.png" id="rocks" alt="rocks">
+                <img src="img/water.png" id="water" alt="water">
+            </section>           
+        </div>
 	</div>
 
 	<div data-_box-100p="transform:translate(0,100%);" data-_box-200p="transform:translate(0,0%);" class="boxs skrollable skrollable-before" style="transform: translate(0px, 100%);"></div>
@@ -60,6 +94,30 @@
 
     </script>
 
+    <script type="text/javascript">
+        let text = document.getElementById('text');
+        let bird1 = document.getElementById('bird1');
+        let bird2 = document.getElementById('bird2');
+        let btn = document.getElementById('btn');
+        let rocks = document.getElementById('rocks');
+        let forest = document.getElementById('forest');
+        let water = document.getElementById('water');
+        let header = document.getElementById('header');
 
+        window.addEventListener('scroll', function(){
+            let val = window.scrollY;
+            text.style.top = 110 + val * -0.10 + '%';
+
+            bird1.style.top = val * -0.1 + 'px';
+            bird1.style.left = val * 0.1 + 'px';
+
+            bird2.style.top = val * 0.05 + 'px';
+            bird2.style.left = val * -0.2 + 'px';
+            /*btn.style.marginTop = val * 1.5 + 'px';*/
+            rocks.style.top = val * -0.05 + 'px';
+            forest.style.top = val * 0.1 + 'px';
+            /*header.style.top = val * 0.5 + 'px';*/
+        })
+    </script>
 
 </body></html>
